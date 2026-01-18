@@ -13,8 +13,23 @@ The array may contain duplicates.
 Multiple solutions can exist, any solution is sufficient to return true.
 */
 
-function canPartition( /*args*/ ) {
+function canPartition(arr) {
   //your code
+  let product = arr.reduce((acc, num) => acc * num, 1);
+  if (product === 0) {
+    let count = arr.filter((num) => num === 0);
+    if (count.length >= 2) {
+      return true;
+    } else if (count.length === 1) {
+      return false;
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (product / arr[i] === arr[i]) {
+      return true;
+    }
+  }
+  return false;
 }
-
+console.log(canPartition([0, 1, 1, 1]));
 exports.solution = canPartition;
