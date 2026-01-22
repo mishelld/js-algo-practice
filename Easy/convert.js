@@ -13,8 +13,11 @@ If you get stuck on a challenge, find help in the Resources tab.
 If you're really stuck, unlock solutions in the Solutions tab.
 */
 
-function convert(/*args*/) {
+function convert(hours, minutes) {
+  let minutetosec = 60 * minutes;
+  let hourtosec = 60 * (60 * hours);
+  return minutetosec + hourtosec;
+
   //your code
 }
-
 exports.solution = convert;
