@@ -29,9 +29,26 @@ encrypt("alpaca") ➞ "0c0pl0aca"
 Notes
 All inputs are strings, no uppercases and all output must be strings.
 */
+function encrypt(str) {
+  let str_step1 = "";
+  //step 1
+  for (let i = str.length - 1; i >= 0; i--) {
+    str_step1 += str[i];
+  }
+  //step 2
+  let result = "";
+  const chart = { a: "0", e: "1", i: "2", o: "2", u: "3" };
+  for (let i = 0; i < str_step1.length; i++) {
+    if (chart[str_step1[i]]) {
+      result += chart[str_step1[i]];
+    } else {
+      result += str_step1[i];
+    }
+  }
+  result += "aca";
 
-function encrypt( /*args*/ ) {
+  return result;
+
   //your code
 }
-
 exports.solution = encrypt;
