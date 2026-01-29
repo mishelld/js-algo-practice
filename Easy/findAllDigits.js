@@ -14,8 +14,34 @@ findAllDigits([4883, 3876, 7769, 9846, 9546, 9634, 9696, 2832, 6822, 6868]) ➞ 
 Notes
 The digits can be discovered in any order.
 */
+//npm run test-findAllDigits
 
-function findAllDigits( /*args*/ ) {
+function findAllDigits(arr) {
+  const obj = {
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+  };
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (const ch of String(arr[i])) {
+      if (!obj[ch]) {
+        obj[ch] = true;
+        counter++;
+      }
+      if (counter === 10) {
+        return arr[i];
+      }
+    }
+  }
+  return "Missing digits!";
   //your code
 }
 
