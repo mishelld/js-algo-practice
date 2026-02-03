@@ -39,9 +39,14 @@ getTotalPrice([
 Notes
 There might be a floating point precision problem in here...
 */
-
-function getTotalPrice( /*args*/ ) {
+//npm run test-getTotalPrice
+function getTotalPrice(arr) {
+  const res = arr.reduce((sum, item) => {
+    return sum + item.quantity * item.price;
+  }, 0);
+  return Number(res.toFixed(1));
   //your code
 }
 
+console.log(getTotalPrice([{ product: "Milk", quantity: 3, price: 1.5 }]));
 exports.solution = getTotalPrice;

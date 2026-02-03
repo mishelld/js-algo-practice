@@ -13,9 +13,26 @@ Notes
 Remember to return a string.
 The first phrase is always "Loves me".
 */
-
-function lovesMe( /*args*/ ) {
+//npm run test-lovesMe
+function lovesMe(num) {
+  let str = "";
+  const love = "Loves me";
+  const not = `${love} not`;
+  let i = 0;
+  while (i < num - 1) {
+    if (i % 2 === 0) {
+      str += `${love}, `;
+    } else {
+      str += `${not}, `;
+    }
+    i++;
+  }
+  if (i % 2 === 0) {
+    str += `${love.toUpperCase()}`;
+  } else {
+    str += `${not.toUpperCase()}`;
+  }
+  return str;
   //your code
 }
-
 exports.solution = lovesMe;

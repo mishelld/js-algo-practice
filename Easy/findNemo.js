@@ -15,9 +15,15 @@ Nemo will always look like Nemo, and not NeMo or other capital variations.
 Nemo's, or anything that says Nemo with something behind it, doesn't count as Finding Nemo.
 If there are multiple Nemo's in the sentence, only return for the first one.
 */
+//npm run test-findNemo
 
-function findNemo( /*args*/ ) {
-  //your code
+function findNemo(str) {
+  let split = str.split(" ");
+  for (const index in split) {
+    if (split[index] === "Nemo") {
+      return `I found Nemo at ${Number(index) + 1}!`;
+    }
+  }
+  return "I can't find Nemo :(";
 }
-
 exports.solution = findNemo;
